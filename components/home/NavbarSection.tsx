@@ -16,7 +16,7 @@ interface User {
 export default function NavbarSection(){
     const pathname = usePathname()
     const router = useRouter();
-    const [user,setUser] = useState<User>(null);
+    const [user,setUser] = useState<User | null>(null);
     const [isProfile,setIsProfile] = useState<boolean>(false);
 
     useEffect(() => {
@@ -52,7 +52,7 @@ export default function NavbarSection(){
         })
         if(res.ok) router.push('/auth/login')
       } catch(err){
-        console.log(error);
+        console.log(err);
       }
     }
 

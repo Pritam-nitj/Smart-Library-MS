@@ -4,7 +4,8 @@ export async function generateQRCode(data: string): Promise<string> {
   try {
     return await QRCode.toDataURL(data)
   } catch (error) {
-    console.log(error)
+    console.error('QR code generation failed:', error)
+    return '' // Return an empty string or a fallback value to satisfy the Promise<string> contract
   }
 }
 
