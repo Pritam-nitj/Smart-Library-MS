@@ -62,7 +62,7 @@ export default function HeroSection(){
             </Badge>
           </div>
           
-          <h1 className="mx-auto max-w-6xl text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-foreground">
+          <h1 className="mx-auto max-w-6xl text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
             A Premier Digital Portal for{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent animate-gradient">

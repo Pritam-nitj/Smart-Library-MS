@@ -86,47 +86,47 @@ export default function UserDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-4xl font-bold text-foreground mb-2">
+          <h1 className="text-4xl font-bold text-zinc-800 mb-2">
             Student Dashboard
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-gray-600">
             Welcome back! Here&apos;s your updated library summary.
           </p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="shadow-md hover:-translate-y-3 border-l-primary border-4 hover:shadow-lg transition-all duration-300 bg-card">
+          <Card className="shadow-md hover:-translate-y-3 border-l-indigo-500 border-4 hover:shadow-lg transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-md font-large text-foreground">
+              <CardTitle className="text-md font-large text-gray-700">
                 Books Issued
               </CardTitle>
-              <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
-                <Book className="h-4 w-4 text-primary-foreground" />
+              <div className="h-8 w-8 bg-blue-500 rounded flex items-center justify-center">
+                <Book className="h-4 w-4 text-white" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-extrabold text-primary">
+              <div className="text-3xl font-extrabold text-purple-600">
                 {bookIssues.length}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="hover:-translate-y-3 border-l-destructive border-4 shadow-md hover:shadow-lg transition-all duration-300 bg-card">
+          <Card className="hover:-translate-y-3 border-l-red-500 border-4 shadow-md hover:shadow-lg transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-md font-large text-foreground">
+              <CardTitle className="text-md font-large text-gray-700">
                 Overdue Books
               </CardTitle>
-              <div className="h-8 w-8 bg-destructive rounded-full flex items-center justify-center">
-                <Clock className="h-4 w-4 text-destructive-foreground" />
+              <div className="h-8 w-8 bg-red-500 rounded-full flex items-center justify-center">
+                <Clock className="h-4 w-4 text-white" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-extrabold text-destructive">
+              <div className="text-3xl font-extrabold text-red-500">
                 {bookIssues.filter(
                   (issue) => new Date(issue.dueDate) < new Date()
                 ).length}
@@ -134,9 +134,9 @@ export default function UserDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="hover:-translate-y-3 border-l-orange-400 border-4 shadow-md hover:shadow-lg transition-all duration-300 bg-card">
+          <Card className="hover:-translate-y-3 border-l-orange-400 border-4 shadow-md hover:shadow-lg transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-md font-large text-foreground">
+              <CardTitle className="text-md font-large text-gray-700">
                 Total Fine
               </CardTitle>
               <div className="h-8 w-8 bg-orange-400 rounded-full flex items-center justify-center">
@@ -152,19 +152,19 @@ export default function UserDashboard() {
         </div>
 
         {/* Currently Issued Books */}
-        <Card className="shadow-md mb-12 bg-card">
+        <Card className="shadow-md mb-12">
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle className="text-lg font-semibold text-foreground">
+              <CardTitle className="text-lg font-semibold text-zinc-800">
                 Currently Issued Books
               </CardTitle>
-              <CardDescription className="text-muted-foreground">
+              <CardDescription className="text-gray-600">
                 Books you have currently borrowed from the library.
               </CardDescription>
             </div>
             <a
               href="#"
-              className="text-primary hover:text-primary/80 text-sm font-medium"
+              className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
             >
               View All →
             </a>
@@ -181,31 +181,31 @@ export default function UserDashboard() {
                     key={issue.id}
                     className={`flex flex-col md:flex-row md:items-center justify-between p-4 rounded-lg border transition-all ${
                       isOverdue
-                        ? 'border-destructive bg-destructive/5'
-                        : 'border-border bg-card'
+                        ? 'border-red-400 bg-red-50'
+                        : 'border-zinc-200 bg-white'
                     }`}
                   >
                     <div className="flex-1 min-w-0 mb-2 md:mb-0">
-                      <h4 className="font-bold text-primary break-words">
+                      <h4 className="font-bold text-indigo-700 break-words">
                         {book.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground break-words">
+                      <p className="text-sm text-gray-600 break-words">
                         by {book.author}
                       </p>
-                      <p className="text-xs text-muted-foreground break-words">
+                      <p className="text-xs text-gray-500 break-words">
                         ISBN: {book.isbn}
                       </p>
                     </div>
                     <div className="text-right">
                       <p
                         className={`text-sm font-medium ${
-                          isOverdue ? 'text-destructive' : 'text-foreground'
+                          isOverdue ? 'text-red-600' : 'text-gray-800'
                         }`}
                       >
                         Due: {dueDate.toLocaleDateString()}
                       </p>
                       {isOverdue && (
-                        <p className="text-xs font-semibold text-destructive">
+                        <p className="text-xs font-semibold text-red-600">
                           Overdue!
                         </p>
                       )}
@@ -214,7 +214,7 @@ export default function UserDashboard() {
                 )
               })
             ) : (
-              <p className="text-muted-foreground">
+              <p className="text-gray-500">
                 You currently have no books issued.
               </p>
             )}
@@ -275,10 +275,10 @@ export default function UserDashboard() {
         {/* Book Search */}
         <Card className="shadow-md">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold text-foreground">
+            <CardTitle className="text-lg font-semibold text-zinc-800">
               Library Books
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
+            <CardDescription className="text-gray-600">
               Search and explore all available books.
             </CardDescription>
           </CardHeader>

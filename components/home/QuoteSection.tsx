@@ -16,7 +16,7 @@ export default function QuoteSection(){
           <div className="bg-card/50 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-border/50">
             <Quote className="text-primary sm:w-12 sm:h-12 w-8 h-8 mb-8 mx-auto drop-shadow-lg"/>
             
-            <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic font-light mb-10 leading-relaxed text-foreground">
+            <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic font-light mb-10 leading-relaxed text-foreground/90">
               A room without books is like a body without a soul.
             </blockquote>
             

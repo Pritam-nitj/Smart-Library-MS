@@ -63,7 +63,7 @@ const FAQSection: React.FC = () => {
           <span>❓</span>
           <span>Got Questions?</span>
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
           Frequently Asked Questions
         </h2>
         <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -128,7 +128,6 @@ const FAQSection: React.FC = () => {
           </Accordion>
 
           {/* Enhanced CTA */}
-
           <div className="flex flex-col items-center justify-between gap-4 rounded-xl border-2 bg-gradient-to-br from-primary/5 to-transparent p-6 text-center md:flex-row md:text-left shadow-lg hover:shadow-xl transition-all">
             <div className="space-y-1">
               <p className="font-bold text-lg">Still have questions?</p>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ConditionalFooter from '@/components/home/ConditionalFooter'
-import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,15 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="">
       <body className="font-sans">
-        <ThemeProvider
-          defaultTheme="system"
-          storageKey="smart-library-theme"
-        >
-          {children}
-          <ConditionalFooter/>
-        </ThemeProvider>
+        {children}
+        <ConditionalFooter/>
       </body>
     </html>
   );

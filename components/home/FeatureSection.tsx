@@ -129,7 +129,7 @@ export default function FeatureSection() {
             <Badge variant="secondary" className="text-sm px-4 py-1.5 mb-4">
               ✨ Core Features
             </Badge>
-            <h2 className='text-4xl md:text-5xl font-bold text-foreground'>
+            <h2 className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent'>
               Everything You Need
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -167,10 +167,10 @@ export default function FeatureSection() {
             <Badge variant="outline" className="text-sm px-4 py-1.5 mb-4">
               📖 Discover
             </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
               Browse by Category
             </h2>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
               Explore our diverse collection of <span className="font-semibold text-primary">50,000+</span> resources across multiple categories
             </p>
           </div>
@@ -180,10 +180,10 @@ export default function FeatureSection() {
             {showLeftArrow && (
               <button
                 onClick={() => scroll('left')}
-                className="absolute cursor-pointer left-0 top-1/2 -translate-y-1/2 z-10 bg-background rounded-full p-3 shadow-lg hover:bg-secondary transition-all"
+                className="absolute cursor-pointer left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all"
                 aria-label="Scroll left"
               >
-                <ChevronLeft className="w-6 h-6 text-foreground" />
+                <ChevronLeft className="w-6 h-6 text-gray-700" />
               </button>
             )}
 
@@ -239,10 +239,10 @@ export default function FeatureSection() {
             {showRightArrow && (
               <button
                 onClick={() => scroll('right')}
-                className="absolute cursor-pointer right-0 top-1/2 -translate-y-1/2 z-10 bg-background rounded-full p-3 shadow-lg hover:bg-secondary transition-all"
+                className="absolute cursor-pointer right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all"
                 aria-label="Scroll right"
               >
-                <ChevronRight className="w-6 h-6 text-foreground" />
+                <ChevronRight className="w-6 h-6 text-gray-700" />
               </button>
             )}
           </div>
