@@ -47,16 +47,16 @@ export default function LoginForm() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
+    <main className="min-h-screen flex items-center justify-center bg-background px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-xl bg-white border border-neutral-200 rounded-2xl p-12 shadow-xl space-y-8"
+        className="w-full max-w-xl bg-card border border-border rounded-2xl p-12 shadow-xl space-y-8"
       >
         <div>
-          <h2 className="text-3xl font-bold text-neutral-900 mb-2">
+          <h2 className="text-3xl font-bold text-foreground mb-2">
             Welcome Back
           </h2>
-          <p className="text-sm text-neutral-600">
+          <p className="text-sm text-muted-foreground">
             Log in to your LibraryMS account
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function LoginForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="bg-white text-neutral-900 placeholder:text-neutral-400 border-neutral-300 h-12"
+            className="bg-input text-foreground placeholder:text-muted-foreground border-border h-12"
             autoComplete="email"
           />
         </div>
@@ -88,28 +88,28 @@ export default function LoginForm() {
             value={formData.password}
             onChange={handleChange}
             required
-            className="bg-white text-neutral-900 placeholder:text-neutral-400 border-neutral-300 h-12"
+            className="bg-input text-foreground placeholder:text-muted-foreground border-border h-12"
             autoComplete="current-password"
           />
         </div>
 
         {error && (
-          <p className="text-red-500 text-sm text-center">{error}</p>
+          <p className="text-destructive text-sm text-center">{error}</p>
         )}
 
         <Button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-all h-12 text-base"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all h-12 text-base"
           disabled={isPending}
         >
           {isPending ? 'Logging in…' : 'Log In'}
         </Button>
 
-        <p className="text-center text-sm text-neutral-500">
+        <p className="text-center text-sm text-muted-foreground">
           Don’t have an account?{' '}
           <Link
             href="/auth/register"
-            className="text-blue-600 underline"
+            className="text-primary underline"
           >
             Register
           </Link>

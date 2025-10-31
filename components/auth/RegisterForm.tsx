@@ -19,10 +19,7 @@ export const Button = React.memo(ButtonComponent)
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 const InputComponent = (props: InputProps) => (
-  <input
-    {...props}
-    className={`w-full rounded-xl px-4 py-3 border border-gray-300 bg-white/60 backdrop-blur-md placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${props.className}`}
-  />
+  <input {...props} className={`w-full rounded-lg px-4 py-3 border bg-input text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-ring transition ${props.className}`} />
 )
 export const Input = React.memo(InputComponent)
 
@@ -30,7 +27,7 @@ type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
   children?: React.ReactNode
 }
 const LabelComponent = ({ children, className, ...props }: LabelProps) => (
-  <label {...props} className={`font-medium text-gray-700 ${className}`}>{children}</label>
+  <label {...props} className={`font-medium text-foreground ${className}`}>{children}</label>
 )
 export const Label = React.memo(LabelComponent)
 
@@ -44,7 +41,7 @@ const SelectComponent = ({ value, onValueChange, options, className }: SelectPro
   <select
     value={value}
     onChange={(e) => onValueChange(e.target.value)}
-    className={`w-full rounded-xl px-4 py-3 border border-gray-300 bg-white/60 backdrop-blur-md text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${className}`}
+    className={`w-full rounded-lg px-4 py-3 border bg-input text-foreground focus:ring-2 focus:ring-ring focus:border-ring transition ${className}`}
   >
     {options.map((opt) => (
       <option key={opt.value} value={opt.value}>
@@ -92,16 +89,14 @@ export default function RegisterForm() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-indigo-200 px-4 sm:px-6">
+    <main className="min-h-screen flex items-center justify-center bg-background px-4 sm:px-6">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white/70 backdrop-blur-xl border border-white/40 rounded-3xl p-10 shadow-2xl space-y-6"
+        className="w-full max-w-lg bg-card border border-border rounded-3xl p-10 shadow-lg space-y-6"
       >
         <div className="text-center">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-1 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Create Your Account
-          </h2>
-          <p className="text-sm text-gray-600">Join <span className="font-semibold text-blue-600">LibraryMS</span> to manage your books smartly.</p>
+          <h2 className="text-3xl font-extrabold text-foreground mb-1">Create Your Account</h2>
+          <p className="text-sm text-muted-foreground">Join LibraryMS to manage your books smartly.</p>
         </div>
 
         <div className="space-y-5">
@@ -136,23 +131,19 @@ export default function RegisterForm() {
           </div>
         </div>
 
-        {error && (
-          <p className="text-red-500 text-sm text-center animate-pulse font-medium">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-destructive text-sm text-center animate-pulse">{error}</p>}
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 text-lg shadow-lg rounded-xl"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isPending}
         >
           {isPending ? 'Creating Account…' : 'Create Account'}
         </Button>
 
-        <p className="text-center text-sm text-gray-600">
+        <p className="text-center text-sm text-muted-foreground">
           Already have an account?{' '}
-          <Link href="/auth/login" className="text-blue-600 hover:text-indigo-600 font-medium underline underline-offset-2">
+          <Link href="/auth/login" className="text-primary hover:underline font-medium">
             Log in
           </Link>
         </p>
